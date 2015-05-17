@@ -181,10 +181,6 @@
         _isBeingShown = YES;
         _gravityAnimation = animation;
     }
-    
-    _internalBlock = ^(AFDropdownNotificationEvent event) {
-        
-    };
 }
 
 -(void)topButtonTapped {
@@ -192,7 +188,6 @@
     [self.notificationDelegate dropdownNotificationTopButtonTapped];
     
     if (_internalBlock) {
-        
         _internalBlock(AFDropdownNotificationEventTopButton);
     }
 }
@@ -201,10 +196,9 @@
     
     [self.notificationDelegate dropdownNotificationBottomButtonTapped];
     
-    //    if (_internalBlock) {
-    
-    _internalBlock(AFDropdownNotificationEventBottomButton);
-    //    }
+     if (_internalBlock) {
+        _internalBlock(AFDropdownNotificationEventBottomButton);
+    }
 }
 
 -(void)dismiss:(id)sender {
